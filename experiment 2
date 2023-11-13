@@ -1,0 +1,17 @@
+int ADPIN = A0;
+int LEDPIN = 11;
+int value = 0;
+float voltage = 0.0;
+
+void setup() {
+  pinMode(LEDPIN, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  value = analogRead(ADPIN);
+  voltage = ((float)value) / 1023;
+  value = (int)(voltage * 256);
+  analogWrite(LEDPIN, value);
+  delay(1000);
+}
